@@ -29,6 +29,13 @@ jobs:
         working-directory: afk-bot-apk
         run: npm run node:kur
 
+      - name: Gereksiz dosyalari temizle (Android cakismasini onler)
+        working-directory: afk-bot-apk
+        run: |
+          find static/nodejs/node_modules -type d \( -name sample -o -name samples -o -name test -o -name tests -o -name __tests__ -o -name example -o -name examples -o -name docs \) -prune -exec rm -rf {} +
+          find static/nodejs/node_modules -name '*.gz' | while read f; do [ -e "${f%.gz}" ] && rm -f "$f"; done
+          echo "Temizlik tamam"
+
       - name: Kodu karistir ve arayuzu derle
         working-directory: afk-bot-apk
         run: OBF_ZORUNLU=1 npm run hazirla
