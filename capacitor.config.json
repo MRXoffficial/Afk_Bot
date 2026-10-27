@@ -1,0 +1,10 @@
+{
+  "appId": "com.afkbot.app",
+  "appName": "AFK Bot",
+  "webDir": "dist",
+  "plugins": {
+    "CapacitorNodeJS": {
+      "nodeDir": "nodejs"
+    }
+  }
+}

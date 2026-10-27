@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="color-scheme" content="dark" />
+  <title>AFK Bot</title>
+  <link rel="stylesheet" href="./stil.css" />
+</head>
+<body>
+  <main class="sayfa">
+    <header class="baslik">
+      <h1>AFK Bot</h1>
+      <p class="sunucu">oyna.aesirmc.com</p>
+    </header>
+
+    <section class="levha" aria-live="polite">
+      <span id="isik" class="isik"></span>
+      <div>
+        <p id="asama" class="asama">Durdu</p>
+        <p id="hesapSatiri" class="hesap-satiri">Henüz hesap girilmedi</p>
+      </div>
+    </section>
+
+    <section class="kart">
+      <label for="kullanici">Oyun hesabı (AFK yapacak)</label>
+      <input id="kullanici" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" maxlength="16" placeholder="Kullanıcı adı" />
+
+      <label for="sifre">Şifre (sunucudaki /login şifresi)</label>
+      <input id="sifre" type="password" autocomplete="off" maxlength="64" placeholder="Şifre" />
+
+      <label for="alici">Takas alacak hesabın (kendi ana hesabın)</label>
+      <input id="alici" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" maxlength="16" placeholder="Ana hesap adı" />
+
+      <label class="onay-satiri">
+        <input id="otomatik" type="checkbox" />
+        <span>Uygulama her açıldığında kendiliğinden başlat</span>
+      </label>
+    </section>
+
+    <section class="kart bilgi">
+      <h2>Bu uygulama ne yapar</h2>
+      <p>Hesaba giriş yapar, Prison'a geçer ve <b>/warp afk</b> bölgesinde bekler. Her gün 06:05'te lobiye düştüyse Prison'a geri döner.</p>
+      <p>Takas alacak hesabın bu hesaba özel mesajla <b>trade</b> yazarsa, bu hesaptaki <b>jeton, maden ruhu ve mücevheri</b> o hesaba takas eder.</p>
+      <p>Şifren yalnızca bu telefonda şifreli saklanır ve sunucuya sadece <b>/login</b> için gönderilir.</p>
+      <label class="onay-satiri">
+        <input id="onay" type="checkbox" />
+        <span>Okudum, kabul ediyorum</span>
+      </label>
+    </section>
+
+    <p id="hata" class="hata" role="alert" hidden></p>
+
+    <div class="dugmeler">
+      <button id="baslat" class="birincil" type="button">Başlat</button>
+      <button id="durdur" class="ikincil" type="button" hidden>Durdur</button>
+    </div>
+
+    <div class="yardimci">
+      <button id="takas" type="button">Takası şimdi başlat</button>
+      <button id="skor" type="button">Skor tablosu</button>
+      <button id="pil" type="button">Pil izni</button>
+      <button id="sil" type="button" class="tehlike">Kayıtlı bilgileri sil</button>
+    </div>
+
+    <section class="kart gunluk-kart">
+      <h2>Günlük</h2>
+      <pre id="gunluk" class="gunluk"></pre>
+    </section>
+
+    <p class="not">Uzun süre açık kalması için Ayarlar'dan bu uygulamanın pil kısıtlamasını kapat ve bildirim iznini ver.</p>
+  </main>
+  <script type="module" src="./main.js"></script>
+</body>
+</html>

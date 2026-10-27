@@ -1,0 +1,5 @@
+node_modules/
+dist/
+android/
+static/nodejs/node_modules/
+static/nodejs/index.js

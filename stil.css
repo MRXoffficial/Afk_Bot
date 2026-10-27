@@ -1,0 +1,81 @@
+:root {
+  --zemin: #181c21;
+  --yuzey: #222830;
+  --cizgi: #36404c;
+  --metin: #ece6d8;
+  --soluk: #98a2ad;
+  --vurgu: #5fd3bc;
+  --uyari: #e0675a;
+  --golge: rgba(0, 0, 0, 0.35);
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+
+html, body { margin: 0; background: var(--zemin); color: var(--metin); }
+
+body {
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  font-size: 16px;
+  line-height: 1.45;
+  padding: env(safe-area-inset-top, 0px) 0 env(safe-area-inset-bottom, 0px);
+}
+
+.sayfa { max-width: 520px; margin: 0 auto; padding: 20px 16px 40px; display: grid; gap: 14px; }
+
+.baslik { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; }
+.baslik h1 { margin: 0; font-size: 1.6rem; letter-spacing: 0.01em; }
+.sunucu { margin: 0; color: var(--soluk); font-size: 0.85rem; font-family: ui-monospace, 'Cascadia Mono', Menlo, monospace; }
+
+/* Durum levhasi: uygulamanin tek buyuk ogesi */
+.levha {
+  display: flex; align-items: center; gap: 14px;
+  background: var(--yuzey); border: 1px solid var(--cizgi); border-left: 6px solid var(--cizgi);
+  border-radius: 6px; padding: 16px 16px;
+}
+.levha.calisiyor { border-left-color: var(--vurgu); }
+.isik { width: 16px; height: 16px; background: var(--cizgi); flex: none; }
+.levha.calisiyor .isik { background: var(--vurgu); animation: nabiz 1.8s ease-in-out infinite; }
+@keyframes nabiz { 50% { opacity: 0.35; } }
+@media (prefers-reduced-motion: reduce) { .levha.calisiyor .isik { animation: none; } }
+.asama { margin: 0; font-size: 1.35rem; font-weight: 650; }
+.hesap-satiri { margin: 2px 0 0; color: var(--soluk); font-size: 0.88rem; }
+
+.kart { background: var(--yuzey); border: 1px solid var(--cizgi); border-radius: 6px; padding: 14px 16px; display: grid; gap: 8px; }
+.kart h2 { margin: 0 0 2px; font-size: 1rem; }
+.bilgi p { margin: 0; font-size: 0.92rem; color: #d6d0c2; }
+.bilgi b { color: var(--metin); }
+
+label { font-size: 0.88rem; color: var(--soluk); }
+input[type='text'], input[type='password'] {
+  width: 100%; padding: 12px 12px; font: inherit; color: var(--metin);
+  background: var(--zemin); border: 1px solid var(--cizgi); border-radius: 4px;
+}
+input:focus-visible, button:focus-visible { outline: 2px solid var(--vurgu); outline-offset: 2px; }
+input:disabled { opacity: 0.55; }
+
+.onay-satiri { display: flex; align-items: flex-start; gap: 10px; color: var(--metin); font-size: 0.92rem; margin-top: 4px; }
+.onay-satiri input { width: 20px; height: 20px; margin: 1px 0 0; accent-color: var(--vurgu); flex: none; }
+
+.hata { margin: 0; padding: 10px 12px; border: 1px solid var(--uyari); border-radius: 4px; color: #f3b3ac; background: rgba(224, 103, 90, 0.1); font-size: 0.92rem; }
+
+.dugmeler { display: grid; gap: 10px; }
+button { font: inherit; cursor: pointer; border-radius: 4px; }
+.birincil, .ikincil { width: 100%; padding: 14px; font-size: 1.05rem; font-weight: 650; border: 0; }
+.birincil { background: var(--vurgu); color: #0d211d; }
+.birincil:disabled { background: var(--cizgi); color: var(--soluk); cursor: not-allowed; }
+.ikincil { background: transparent; color: var(--uyari); border: 1px solid var(--uyari); }
+
+.yardimci { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.yardimci button { padding: 11px 8px; background: var(--yuzey); color: var(--metin); border: 1px solid var(--cizgi); font-size: 0.9rem; }
+.yardimci .tehlike { color: #f3b3ac; border-color: rgba(224, 103, 90, 0.5); }
+.yardimci button:disabled { opacity: 0.45; cursor: not-allowed; }
+
+.gunluk-kart { padding-bottom: 12px; }
+.gunluk {
+  margin: 0; height: 240px; overflow: auto; white-space: pre-wrap; word-break: break-word;
+  font: 0.78rem/1.5 ui-monospace, 'Cascadia Mono', Menlo, monospace; color: #c8d3da;
+  background: var(--zemin); border: 1px solid var(--cizgi); border-radius: 4px; padding: 10px;
+}
+.not { margin: 0; color: var(--soluk); font-size: 0.82rem; }
+[hidden] { display: none !important; }
